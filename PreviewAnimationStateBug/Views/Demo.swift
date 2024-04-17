@@ -29,7 +29,7 @@ struct Demo: View {
                         .transition(
                             CustomOffset(
                                 offset: presentedOrigin,
-                                center: CGPoint.centerOf(rect: geo.frame(in: .global))
+                                center: CGPoint.centerOf(rect: geo.frame(in: .local))
                             )
                         )
                 }
@@ -53,6 +53,9 @@ extension Demo {
                     maxHeight: phase.isIdentity ? .infinity : 50
                 )
                 .position(phase.isIdentity ? center : offset)
+                .onChange(of: phase, initial: true) { _, phase in
+                    print("Phase is \(phase)")
+                }
         }
     }
 }

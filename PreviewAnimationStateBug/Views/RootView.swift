@@ -10,7 +10,6 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         Demo()
-            .padding(30)
     }
 }
 
